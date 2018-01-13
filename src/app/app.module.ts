@@ -1,14 +1,23 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatModule } from './mat.module';
 import { AppComponent } from './app.component';
+import { CarsComponent } from './cars/cars.component';
+import { HotelsComponent } from './hotels/hotels.component';
+import { FlightsComponent } from './flights/flights.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CarsComponent,
+    HotelsComponent,
+    FlightsComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    MatModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
