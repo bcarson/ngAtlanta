@@ -1,3 +1,12 @@
-<p>
-  cars works!
-</p>
+<form [formGroup]="carsForm">
+  <div class="form-group">
+    <label for="pickupCity">Pickup City:
+      <input type="text" class="form-control" formControlName="pickupCity">
+    </label>
+    <div>
+      <label for="dropoffCity">Drop Off City:
+        <input type="text" class="form-control" formControlName="dropoffCity">
+      </label>
+    </div>
+  </div>
+</form>
