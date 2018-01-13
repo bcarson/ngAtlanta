@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-hotels',
@@ -6,10 +7,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./hotels.component.css']
 })
 export class HotelsComponent implements OnInit {
+  hotelsForm: FormGroup;
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(private fb: FormBuilder) {
+    this.createForm();
   }
 
+  ngOnInit() {
+    console.log('is');
+  }
+
+  createForm() {
+    this.hotelsForm = this.fb.group({
+      pickupDate: '',
+      city: '',
+      roomType: '',
+      checkinDate: ''
+    });
+  }
 }

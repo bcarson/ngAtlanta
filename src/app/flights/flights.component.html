@@ -1,3 +1,36 @@
-<p>
-  flights works!
-</p>
+<form [formGroup]="flightsForm">
+  <div class="form-group">
+    <mat-form-field>
+      <input type="text" matInput formControlName="fromCity" placeholder="From">
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field>
+      <input type="text" matInput formControlName="toCity" placeholder="To">
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field>
+      <mat-select matInput formControlName="class" placeholder="Class">
+        <mat-option value="Econ">Economy Class</mat-option>
+        <mat-option value="Bus">Business Class</mat-option>
+        <mat-option value="First">First Class</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field>
+      <input matInput [matDatepicker]="picker" formControlName="flightDate" placeholder="Flight Date">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </div>
+
+  <div>
+    <button mat-raised-button>Submit!</button>
+  </div>
+
+</form>

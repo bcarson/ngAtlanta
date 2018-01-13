@@ -14,7 +14,7 @@ export class CarsComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('welcome to the cars component!');
+    console.log('sam');
   }
 
   createForm() {
@@ -23,8 +23,8 @@ export class CarsComponent implements OnInit {
       pickupCity: ['', Validators.required],
       // Our initial value can be an empty string or whatever you want as default
       dropoffCity: 'Houston',
-      carType: ''
+      carType: '',
+      pickupDate: ''
     });
   }
-
 }

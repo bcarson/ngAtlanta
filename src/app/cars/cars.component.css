@@ -6,4 +6,5 @@ mat-form-field {
 button {
   background-color: pink;
   margin-left: 25px;
+  float: left;
 }
