@@ -1,12 +1,12 @@
 <form [formGroup]="carsForm">
   <div class="form-group">
-    <label for="pickupCity">Pickup City:
-      <input type="text" class="form-control" formControlName="pickupCity">
-    </label>
-    <div>
-      <label for="dropoffCity">Drop Off City:
-        <input type="text" class="form-control" formControlName="dropoffCity">
-      </label>
-    </div>
+    <mat-form-field>
+      <input type="text" matInput formControlName="pickupCity" placeholder="Pickup City">
+    </mat-form-field>
+  </div>
+  <div>
+      <mat-form-field>
+          <input type="text" matInput formControlName="dropoffCity" placeholder="Drop Off City">
+        </mat-form-field>
   </div>
 </form>
