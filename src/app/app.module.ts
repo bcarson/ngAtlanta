@@ -9,13 +9,15 @@ import { AppComponent } from './app.component';
 import { CarsComponent } from './cars/cars.component';
 import { HotelsComponent } from './hotels/hotels.component';
 import { FlightsComponent } from './flights/flights.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CarsComponent,
     HotelsComponent,
-    FlightsComponent
+    FlightsComponent,
+    HomeComponent
   ],
   imports: [
     BrowserAnimationsModule,

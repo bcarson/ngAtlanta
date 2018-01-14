@@ -9,6 +9,10 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class FlightsComponent implements OnInit {
   flightsForm: FormGroup;
 
+  submit() {
+    console.log('It works!');
+  }
+
   constructor(private fb: FormBuilder) {
     this.createForm();
   }
