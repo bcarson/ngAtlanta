@@ -49,7 +49,8 @@ export class FlightsComponent implements OnInit {
       .valueChanges.pipe(
         startWith(''),
         map(
-          airport => (airport ? this.filterAirports(airport) : airports.slice())
+          airport =>
+            airport ? this.filterAirports(airport['city']) : airports.slice()
         )
       );
   }

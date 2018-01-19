@@ -1,8 +1,13 @@
 <form [formGroup]="flightsForm">
   <div class="form-group">
     <mat-form-field>
-      <input type="text" matInput formControlName="fromCity" placeholder="From">
+      <input type="text" matInput formControlName="fromCity" placeholder="From" [matAutocomplete]="auto">
     </mat-form-field>
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let airport of filteredAirport" [value]="airport.name">
+        {{ airport.name }}
+      </mat-option>
+    </mat-autocomplete>
   </div>
 
   <div>
