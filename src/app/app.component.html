@@ -2,7 +2,7 @@
   <mat-toolbar>Welcome to Travel Agents R Us!</mat-toolbar>
   <mat-tab-group>
     <mat-tab label='Welcome'>
-      <app-home></app-home>
+      <app-home [message]>='submitMessage'</app-home>
     </mat-tab>
     <mat-tab label='Find a Car'>
       <app-cars></app-cars>
@@ -11,7 +11,8 @@
       <app-hotels></app-hotels>
     </mat-tab>
     <mat-tab label='Find a Flight'>
-      <app-flights></app-flights>
+      <app-flights (save)='submit($event)'></app-flights>
     </mat-tab>
   </mat-tab-group>
+  {{ submitMessage }}
 </div>

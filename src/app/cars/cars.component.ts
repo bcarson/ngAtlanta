@@ -8,6 +8,12 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class CarsComponent implements OnInit {
   carsForm: FormGroup;
+  submit = '';
+
+  save() {
+    console.log('It works!');
+    this.submit = 'you have submitted the cars page!';
+  }
 
   constructor(private fb: FormBuilder) {
     this.createForm();
