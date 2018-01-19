@@ -1,6 +1,9 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import 'rxjs/add/operator/debounceTime';
+import { Observable } from 'rxjs/Observable';
+import { debounceTime, map, startWith } from 'rxjs/operators';
+
+import { airports } from '../shared/constants/airports';
 
 @Component({
   selector: 'app-flights',
@@ -11,6 +14,8 @@ export class FlightsComponent implements OnInit {
   @Output() submit = new EventEmitter();
   flightsForm: FormGroup;
   submitMessage: string;
+  filteredAirportsFrom: Observable<any[]>;
+  filteredAirportsTo: Observable<any[]>;
 
   save() {
     console.log('It works!');
@@ -24,9 +29,10 @@ export class FlightsComponent implements OnInit {
 
   ngOnInit() {
     console.log('awesome');
-    this.flightsForm.valueChanges.debounceTime(200).subscribe(form => {
+    this.flightsForm.valueChanges.pipe(debounceTime(200)).subscribe(form => {
       console.log('the form has changed!', form);
     });
+    console.log('airports!!!', airports);
   }
 
   createForm() {
@@ -37,5 +43,21 @@ export class FlightsComponent implements OnInit {
       class: '',
       flightDate: ''
     });
+
+    this.filteredAirportsFrom = this.flightsForm
+      .get('fromCity')
+      .valueChanges.pipe(
+        startWith(''),
+        map(
+          airport => (airport ? this.filterAirports(airport) : airports.slice())
+        )
+      );
+  }
+
+  filterAirports(searchString: string) {
+    return airports.filter(
+      airport =>
+        airport.city.toLowerCase().indexOf(searchString.toLowerCase()) === 0
+    );
   }
 }
