@@ -1,49 +1,57 @@
-<form [formGroup]="flightsForm">
-  <div class="form-group">
+<div class='flights'>
+  <form [formGroup]="flightsForm">
+    <div class="form-group">
 
-    <mat-form-field>
-      <input type="text" matInput formControlName="fromCity" placeholder="Departure City" [matAutocomplete]="cityFrom">
-    </mat-form-field>
-    <mat-autocomplete #cityFrom="matAutocomplete">
-      <mat-option *ngFor="let airport of filteredAirportsFrom" [value]="airport.name">
-        {{ airport.city }} - {{ airport.name }} ({{ airport.code }})
-      </mat-option>
-    </mat-autocomplete>
+      <mat-form-field>
+        <input type="text" matInput formControlName="fromCity" placeholder="Departure City" [matAutocomplete]="cityFrom">
+      </mat-form-field>
+      <mat-autocomplete #cityFrom="matAutocomplete">
+        <mat-option *ngFor="let airport of filteredAirportsFrom" [value]="airport.name">
+          {{ airport.city }} - {{ airport.name }} ({{ airport.code }})
+        </mat-option>
+      </mat-autocomplete>
 
-    <mat-form-field>
-      <input type="text" matInput formControlName="toCity" placeholder="Destination City" [matAutocomplete]="cityTo">
-    </mat-form-field>
-    <mat-autocomplete #cityTo="matAutocomplete">
-      <mat-option *ngFor="let airport of filteredAirportsTo" [value]="airport.name">
-        {{ airport.city }} - {{ airport.name }} ({{ airport.code }})
-      </mat-option>
-    </mat-autocomplete>
+      <mat-form-field>
+        <input type="text" matInput formControlName="toCity" placeholder="Destination City" [matAutocomplete]="cityTo">
+      </mat-form-field>
+      <mat-autocomplete #cityTo="matAutocomplete">
+        <mat-option *ngFor="let airport of filteredAirportsTo" [value]="airport.name">
+          {{ airport.city }} - {{ airport.name }} ({{ airport.code }})
+        </mat-option>
+      </mat-autocomplete>
 
-    <mat-form-field>
-      <mat-select matInput formControlName="class" placeholder="Preferred Class">
-        <mat-option value="Bus">Business/First</mat-option>
-        <mat-option value="Econ">Economy/Coach</mat-option>
-        <mat-option value="Prem">Premium Economy</mat-option>
-      </mat-select>
-    </mat-form-field>
+      <mat-form-field>
+        <mat-select matInput formControlName="class" placeholder="Preferred Class">
+          <mat-option value="Bus">Business/First</mat-option>
+          <mat-option value="Econ">Economy/Coach</mat-option>
+          <mat-option value="Prem">Premium Economy</mat-option>
+        </mat-select>
+      </mat-form-field>
 
-    <mat-form-field>
-      <input matInput [matDatepicker]="departing" formControlName="flightDeparting" placeholder="Departure Date">
-      <mat-datepicker-toggle matSuffix [for]="departing"></mat-datepicker-toggle>
-      <mat-datepicker #departing></mat-datepicker>
-    </mat-form-field>
+      <mat-form-field>
+        <input matInput [matDatepicker]="departing" formControlName="flightDeparting" placeholder="Departure Date">
+        <mat-datepicker-toggle matSuffix [for]="departing"></mat-datepicker-toggle>
+        <mat-datepicker #departing></mat-datepicker>
+      </mat-form-field>
 
-    <mat-form-field class="roundTrip">
-      <input matInput [matDatepicker]="returning" formControlName="flightReturning" placeholder="Return Date">
-      <mat-datepicker-toggle matSuffix [for]="returning"></mat-datepicker-toggle>
-      <mat-datepicker #returning></mat-datepicker>
-    </mat-form-field>
+      <mat-form-field class="roundTrip">
+        <input matInput [matDatepicker]="returning" formControlName="flightReturning" placeholder="Return Date">
+        <mat-datepicker-toggle matSuffix [for]="returning"></mat-datepicker-toggle>
+        <mat-datepicker #returning></mat-datepicker>
+      </mat-form-field>
 
-    <div class="button-row">
-      <button mat-button (click)="save()">Search for Flights</button>
+      <div class="button-row">
+        <button mat-button (click)="save()">Search for Flights</button>
+      </div>
     </div>
 
-  </div>
+    <p> {{ submitMessage }}</p>
+  </form>
 
-  <p> {{ submitMessage }}</p>
-</form>
+
+  <div class="results">
+    <div *ngFor='let flight of flightResults'>
+      <app-flight-detail [flight]='flight'></app-flight-detail>
+    </div>
+  </div>
+</div>
