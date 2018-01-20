@@ -2,6 +2,13 @@
   <mat-toolbar>Welcome to Travel Agents R Us!</mat-toolbar>
   <mat-tab-group mat-stretch-tabs>
 
+    <mat-tab label='Find a Flight'>
+      <ng-template mat-tab-label>
+        <i class="material-icons">flight</i> Find a Flight
+      </ng-template>
+      <app-flights (save)='submit($event)'></app-flights>
+    </mat-tab>
+
     <mat-tab label='Find a Car'>
       <ng-template mat-tab-label>
         <i class="material-icons">directions_car</i> Find a Car
@@ -14,13 +21,6 @@
         <i class="material-icons">hotel</i> Find a Hotel
       </ng-template>
       <app-hotels></app-hotels>
-    </mat-tab>
-
-    <mat-tab label='Find a Flight'>
-      <ng-template mat-tab-label>
-        <i class="material-icons">flight</i> Find a Flight
-      </ng-template>
-      <app-flights (save)='submit($event)'></app-flights>
     </mat-tab>
   </mat-tab-group>
   {{ submitMessage }}

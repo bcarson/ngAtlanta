@@ -47,7 +47,7 @@
 
     <p> {{ submitMessage }}</p>
   </form>
-
+  <app-flight-detail [flight]='flight'></app-flight-detail>
 
   <div class="results">
     <div *ngFor='let flight of flightResults'>
