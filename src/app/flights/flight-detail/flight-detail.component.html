@@ -1,3 +1,36 @@
 <mat-card>
-  <mat-card-content>{{ flights.from }}</mat-card-content>
+  <mat-card-content>
+    <mat-grid-list cols="3" rowHeight="85px">
+      <mat-grid-tile>
+        <mat-list>
+          <p>
+            <strong>Flight From:</strong> {{ flight.from }}
+          </p>
+          <p>
+            <strong>Flight To:</strong> {{ flight.to }}
+          </p>
+        </mat-list>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-list>
+          <p>
+            <strong>Flight Duration:</strong> {{ flight.duration }}
+          </p>
+          <p>
+            <strong>Flight Type:</strong> {{ flight.type }}
+          </p>
+        </mat-list>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-list>
+          <p>
+            <strong>Price:</strong> {{ flight.price }}
+          </p>
+          <button mat-button>Book Flight</button>
+        </mat-list>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </mat-card-content>
 </mat-card>

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { flights } from '../../shared/models';
+import { Component, OnInit, Input } from '@angular/core';
+import { Flight } from '../../shared/models';
+import { flights } from '../../shared/constants';
 
 @Component({
   selector: 'app-flight-detail',
@@ -7,7 +8,11 @@ import { flights } from '../../shared/models';
   styleUrls: ['./flight-detail.component.css']
 })
 export class FlightDetailComponent implements OnInit {
+  @Input() flight: Flight;
+
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.flight = flights[0];
+  }
 }
