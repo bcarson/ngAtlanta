@@ -17,9 +17,7 @@ export class HotelsComponent implements OnInit {
     this.createForm();
   }
 
-  ngOnInit() {
-    console.log('is');
-  }
+  ngOnInit() {}
 
   createForm() {
     this.hotelsForm = this.fb.group({

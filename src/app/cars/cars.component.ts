@@ -19,9 +19,7 @@ export class CarsComponent implements OnInit {
     this.createForm();
   }
 
-  ngOnInit() {
-    console.log('sam');
-  }
+  ngOnInit() {}
 
   createForm() {
     this.carsForm = this.fb.group({

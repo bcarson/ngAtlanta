@@ -1,6 +1,6 @@
 <div>
   <mat-toolbar>Welcome to Travel Agents R Us!</mat-toolbar>
-  <mat-tab-group>
+  <mat-tab-group mat-stretch-tabs>
     <mat-tab label='Welcome'>
       <app-home [message]>='submitMessage'</app-home>
     </mat-tab>
@@ -11,6 +11,9 @@
       <app-hotels></app-hotels>
     </mat-tab>
     <mat-tab label='Find a Flight'>
+      <ng-template mat-tab-label>
+        <i class="material-icons">flight</i> Find a Flight
+      </ng-template>
       <app-flights (save)='submit($event)'></app-flights>
     </mat-tab>
   </mat-tab-group>

@@ -1,3 +1,18 @@
 mat-toolbar {
   text-align: center;
 }
+
+/deep/ .mat-form-field[_ngcontent-c6] {
+  width: 95%;
+}
+
+/deep/ .mat-tab-body-content {
+  padding: 20px;
+}
+
+/deep/ .form-group {
+  width: 80%;
+  display: flow-root;
+  margin: 0 auto;
+  align-content: center;
+}

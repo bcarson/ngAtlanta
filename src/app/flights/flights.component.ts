@@ -1,9 +1,9 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
-import { debounceTime, map, startWith } from 'rxjs/operators';
-
-import { airports } from '../shared/constants/airports';
+import { debounceTime, map, startWith, tap } from 'rxjs/operators';
+import { Airport, Flight } from '../shared/models';
+import { airports } from '../shared/constants';
 
 @Component({
   selector: 'app-flights',
@@ -12,13 +12,12 @@ import { airports } from '../shared/constants/airports';
 })
 export class FlightsComponent implements OnInit {
   @Output() submit = new EventEmitter();
+  filteredAirportsFrom: Airport[];
+  filteredAirportsTo: Airport[];
   flightsForm: FormGroup;
   submitMessage: string;
-  filteredAirportsFrom: Observable<any[]>;
-  filteredAirportsTo: Observable<any[]>;
 
   save() {
-    console.log('It works!');
     this.submitMessage = 'you have submitted the flights page!';
     this.submit.next();
   }
@@ -28,11 +27,34 @@ export class FlightsComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('awesome');
+    /*
+    *   This valueChanges watches the entire form
+    */
     this.flightsForm.valueChanges.pipe(debounceTime(200)).subscribe(form => {
-      console.log('the form has changed!', form);
+      // console.log('form changed:', form);
     });
-    console.log('airports!!!', airports);
+
+    /*
+    *   This valueChanges watches the fromCity field (and handles the autocomplete)
+    */
+    this.flightsForm
+      .get('fromCity')
+      .valueChanges.pipe(debounceTime(200))
+      .subscribe(
+        searchString =>
+          (this.filteredAirportsFrom = this.filterAirports(searchString))
+      );
+
+    /*
+    *   This valueChanges watches the toCity field (and handles the autocomplete)
+    */
+    this.flightsForm
+      .get('toCity')
+      .valueChanges.pipe(debounceTime(200))
+      .subscribe(
+        searchString =>
+          (this.filteredAirportsTo = this.filterAirports(searchString))
+      );
   }
 
   createForm() {
@@ -41,24 +63,19 @@ export class FlightsComponent implements OnInit {
       toCity: '',
       city: '',
       class: '',
-      flightDate: ''
+      flightDeparting: '',
+      flightReturning: ''
     });
-
-    this.filteredAirportsFrom = this.flightsForm
-      .get('fromCity')
-      .valueChanges.pipe(
-        startWith(''),
-        map(
-          airport =>
-            airport ? this.filterAirports(airport['city']) : airports.slice()
-        )
-      );
   }
 
+  /*
+  *   This method uses the search string to filter airports by city
+  */
   filterAirports(searchString: string) {
-    return airports.filter(
+    const results = airports.filter(
       airport =>
         airport.city.toLowerCase().indexOf(searchString.toLowerCase()) === 0
     );
+    return results;
   }
 }
