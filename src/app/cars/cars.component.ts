@@ -28,7 +28,8 @@ export class CarsComponent implements OnInit {
       // Our initial value can be an empty string or whatever you want as default
       dropoffCity: 'Houston',
       carType: '',
-      pickupDate: ''
+      pickUp: '',
+      dropOff: ''
     });
   }
 }

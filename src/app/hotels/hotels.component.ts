@@ -24,7 +24,8 @@ export class HotelsComponent implements OnInit {
       pickupDate: '',
       city: '',
       roomType: '',
-      checkinDate: ''
+      checkIn: '',
+      checkOut: ''
     });
   }
 }

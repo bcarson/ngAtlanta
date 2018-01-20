@@ -1,36 +1,41 @@
 <form [formGroup]="carsForm">
   <div class="form-group">
+
     <mat-form-field>
       <input type="text" matInput formControlName="pickupCity" placeholder="Pickup City">
     </mat-form-field>
-  </div>
 
-  <div>
+    <div>
+      <mat-form-field>
+        <input type="text" matInput formControlName="dropoffCity" placeholder="Drop Off City">
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field>
+        <mat-select matInput formControlName="carType" placeholder="Car Type">
+          <mat-option value="chevy">Chevrolet</mat-option>
+          <mat-option value="acura">Acura</mat-option>
+          <mat-option value="ford">Ford</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
     <mat-form-field>
-      <input type="text" matInput formControlName="dropoffCity" placeholder="Drop Off City">
+      <input matInput [matDatepicker]="pickUp" formControlName="pickUp" placeholder="Pick Up Date">
+      <mat-datepicker-toggle matSuffix [for]="pickUp"></mat-datepicker-toggle>
+      <mat-datepicker #pickUp></mat-datepicker>
     </mat-form-field>
-  </div>
 
-  <div>
     <mat-form-field>
-      <mat-select matInput formControlName="carType" placeholder="Car Type">
-        <mat-option value="chevy">Chevrolet</mat-option>
-        <mat-option value="acura">Acura</mat-option>
-        <mat-option value="ford">Ford</mat-option>
-      </mat-select>
+      <input matInput [matDatepicker]="dropOff" formControlName="dropOff" placeholder="Drop Off Date">
+      <mat-datepicker-toggle matSuffix [for]="dropOff"></mat-datepicker-toggle>
+      <mat-datepicker #dropOff></mat-datepicker>
     </mat-form-field>
-  </div>
 
-  <div>
-    <mat-form-field>
-      <input matInput [matDatepicker]="picker" formControlName="pickupDate" placeholder="Pickup Date">
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
-  </div>
+    <div>
+      <button mat-raised-button>Search for cars</button>
+    </div>
 
-  <div>
-    <button mat-raised-button>Submit!</button>
   </div>
-
 </form>

@@ -1,5 +1,6 @@
 mat-toolbar {
-  text-align: center;
+  padding-left: 565px;
+  background-color: pink;
 }
 
 /deep/ .mat-form-field[_ngcontent-c6] {
@@ -15,4 +16,8 @@ mat-toolbar {
   display: flow-root;
   margin: 0 auto;
   align-content: center;
+}
+
+.material-icons {
+  margin-right: 5px;
 }

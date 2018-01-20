@@ -1,15 +1,21 @@
 <div>
   <mat-toolbar>Welcome to Travel Agents R Us!</mat-toolbar>
   <mat-tab-group mat-stretch-tabs>
-    <mat-tab label='Welcome'>
-      <app-home [message]>='submitMessage'</app-home>
-    </mat-tab>
+
     <mat-tab label='Find a Car'>
+      <ng-template mat-tab-label>
+        <i class="material-icons">directions_car</i> Find a Car
+      </ng-template>
       <app-cars></app-cars>
     </mat-tab>
+
     <mat-tab label='Find a Hotel'>
+      <ng-template mat-tab-label>
+        <i class="material-icons">hotel</i> Find a Hotel
+      </ng-template>
       <app-hotels></app-hotels>
     </mat-tab>
+
     <mat-tab label='Find a Flight'>
       <ng-template mat-tab-label>
         <i class="material-icons">flight</i> Find a Flight

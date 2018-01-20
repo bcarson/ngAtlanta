@@ -3,28 +3,31 @@
     <mat-form-field>
       <input type="text" matInput formControlName="city" placeholder="City">
     </mat-form-field>
-  </div>
 
-  <div>
+    <div>
+      <mat-form-field>
+        <mat-select matInput formControlName="roomType" placeholder="Room Type">
+          <mat-option value="single">Single Bed</mat-option>
+          <mat-option value="double">Double Bed</mat-option>
+          <mat-option value="suite">Suite</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
     <mat-form-field>
-      <mat-select matInput formControlName="roomType" placeholder="Room Type">
-        <mat-option value="single">Single Bed</mat-option>
-        <mat-option value="double">Double Bed</mat-option>
-        <mat-option value="suite">Suite</mat-option>
-      </mat-select>
+      <input matInput [matDatepicker]="checkIn" formControlName="checkIn" placeholder="Check-In Date">
+      <mat-datepicker-toggle matSuffix [for]="checkIn"></mat-datepicker-toggle>
+      <mat-datepicker #checkIn></mat-datepicker>
     </mat-form-field>
-  </div>
 
-  <div>
     <mat-form-field>
-      <input matInput [matDatepicker]="picker" formControlName="checkinDate" placeholder="Check-In Date">
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
+      <input matInput [matDatepicker]="checkOut" formControlName="checkOut" placeholder="Check-out Date">
+      <mat-datepicker-toggle matSuffix [for]="checkOut"></mat-datepicker-toggle>
+      <mat-datepicker #checkOut></mat-datepicker>
     </mat-form-field>
-  </div>
+    <div>
+      <button mat-raised-button>Search for hotels</button>
+    </div>
 
-  <div>
-    <button mat-raised-button>Submit!</button>
   </div>
-
 </form>
