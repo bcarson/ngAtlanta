@@ -21,3 +21,7 @@ mat-toolbar {
 .material-icons {
   margin-right: 5px;
 }
+
+/deep/ .mat-tab-body-content > #flights {
+  background-color: blue;
+}
