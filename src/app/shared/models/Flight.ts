@@ -6,5 +6,5 @@ export interface Flight {
   duration: string;
   departure: string;
   arrival: string;
-  type: string;
+  time: string;
 }

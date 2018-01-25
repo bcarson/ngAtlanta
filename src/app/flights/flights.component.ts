@@ -14,6 +14,7 @@ export class FlightsComponent implements OnInit {
   @Output() submit = new EventEmitter();
   filteredAirportsFrom: Airport[];
   filteredAirportsTo: Airport[];
+  filteredFlightsTime: Flight[];
   flightResults: Flight[];
   flightsForm: FormGroup;
   submitMessage: string;
@@ -32,13 +33,19 @@ export class FlightsComponent implements OnInit {
     *   This valueChanges watches the entire form
     */
     this.flightsForm.valueChanges.pipe(debounceTime(300)).subscribe(form => {
+      console.log('Form:', form);
       const fromAirport = this.getAirport(form.fromCity);
       const toAirport = this.getAirport(form.toCity);
       if (fromAirport && toAirport) {
         console.log('form.fromCity', form.fromCity);
         console.log('form.toCity', form.toCity);
+        console.log('form.time', form.time);
         console.log('fromAirport', fromAirport);
-        this.flightResults = this.getFlights(fromAirport.code, toAirport.code);
+        this.flightResults = this.getFlights(
+          fromAirport.code,
+          toAirport.code,
+          form.time
+        );
         console.log('matching flights:', this.flightResults);
       }
     });
@@ -66,14 +73,22 @@ export class FlightsComponent implements OnInit {
       );
   }
 
-  getFlights(from, to) {
-    return flights.filter(flight => flight.from === from && flight.to === to);
+  getFlights(from, to, time?) {
+    if (time !== '') {
+      return flights.filter(
+        flight =>
+          flight.from === from && flight.to === to && flight.time === time
+      );
+    } else {
+      return flights.filter(flight => flight.from === from && flight.to === to);
+    }
   }
 
   createForm() {
     this.flightsForm = this.fb.group({
       fromCity: '',
       toCity: '',
+      time: '',
       city: '',
       class: '',
       flightDeparting: '',
@@ -92,7 +107,19 @@ export class FlightsComponent implements OnInit {
     return results;
   }
 
+  filterFlights(searchString: string) {
+    const results = flights.filter(
+      flight =>
+        flight.time.toLowerCase().indexOf(searchString.toLowerCase()) === 0
+    );
+    return results;
+  }
+
   getAirport(name) {
     return airports.filter(airport => airport.name === name)[0];
+  }
+
+  getFlight(time) {
+    return flights.filter(flight => flight.time === time)[0];
   }
 }

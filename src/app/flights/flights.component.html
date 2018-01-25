@@ -21,6 +21,14 @@
       </mat-autocomplete>
 
       <mat-form-field>
+        <mat-select matInput formControlName="time" placeholder="Time">
+          <mat-option value="Morning">Morning</mat-option>
+          <mat-option value="Afternoon">Afternoon</mat-option>
+          <mat-option value="Evening">Evening</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
         <mat-select matInput formControlName="class" placeholder="Preferred Class">
           <mat-option value="Bus">Business/First</mat-option>
           <mat-option value="Econ">Economy/Coach</mat-option>
