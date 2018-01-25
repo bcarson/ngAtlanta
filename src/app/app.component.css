@@ -1,6 +1,7 @@
 mat-toolbar {
-  padding-left: 565px;
-  background-color: pink;
+  padding-left: 680px;
+  background-color: #3f51b5;
+  color: #fff;
 }
 
 /deep/ .mat-form-field[_ngcontent-c6] {
