@@ -30,6 +30,36 @@ export const flights = [
     time: 'Evening'
   },
   {
+    from: 'STL',
+    to: 'IAH',
+    id: 1234,
+    price: '278.59',
+    duration: '2h 12m',
+    departure: '8:15am',
+    arrival: '10:27am',
+    time: 'Morning'
+  },
+  {
+    from: 'STL',
+    to: 'IAH',
+    id: 1235,
+    price: '278.59',
+    duration: '2h 12m',
+    departure: '8:15am',
+    arrival: '10:27am',
+    time: 'Afternoon'
+  },
+  {
+    from: 'STL',
+    to: 'IAH',
+    id: 1236,
+    price: '278.59',
+    duration: '2h 12m',
+    departure: '8:15am',
+    arrival: '10:27am',
+    time: 'Evening'
+  },
+  {
     from: 'IAH',
     to: 'DFW',
     id: 5678,
@@ -59,6 +89,38 @@ export const flights = [
     arrival: '9:53am',
     time: 'Evening'
   },
+
+  {
+    from: 'DFW',
+    to: 'IAH',
+    id: 5678,
+    price: '158.67',
+    duration: '1h 8m',
+    departure: '8:45am',
+    arrival: '9:53am',
+    time: 'Morning'
+  },
+  {
+    from: 'DFW',
+    to: 'IAH',
+    id: 5679,
+    price: '158.67',
+    duration: '1h 8m',
+    departure: '8:45am',
+    arrival: '9:53am',
+    time: 'Afternoon'
+  },
+  {
+    from: 'DFW',
+    to: 'IAH',
+    id: 5670,
+    price: '158.67',
+    duration: '1h 8m',
+    departure: '8:45am',
+    arrival: '9:53am',
+    time: 'Evening'
+  },
+
   {
     from: 'IAH',
     to: 'ATL',
@@ -89,6 +151,38 @@ export const flights = [
     arrival: '12:38pm',
     time: 'Evening'
   },
+
+  {
+    from: 'ATL',
+    to: 'IAH',
+    id: 2223,
+    price: '232.55',
+    duration: '2h 23m',
+    departure: '10:15am',
+    arrival: '12:38pm',
+    time: 'Morning'
+  },
+  {
+    from: 'ATL',
+    to: 'IAH',
+    id: 2224,
+    price: '232.55',
+    duration: '2h 23m',
+    departure: '10:15am',
+    arrival: '12:38pm',
+    time: 'Afternoon'
+  },
+  {
+    from: 'ATL',
+    to: 'IAH',
+    id: 2225,
+    price: '232.55',
+    duration: '2h 23m',
+    departure: '10:15am',
+    arrival: '12:38pm',
+    time: 'Evening'
+  },
+
   {
     from: 'IAH',
     to: 'SLC',
@@ -119,6 +213,38 @@ export const flights = [
     arrival: '11:00am',
     time: 'Evening'
   },
+
+  {
+    from: 'SLC',
+    to: 'IAH',
+    id: 3334,
+    price: '378.59',
+    duration: '2h 45m',
+    departure: '8:15am',
+    arrival: '11:00am',
+    time: 'Morning'
+  },
+  {
+    from: 'SLC',
+    to: 'IAH',
+    id: 3335,
+    price: '378.59',
+    duration: '2h 45m',
+    departure: '8:15am',
+    arrival: '11:00am',
+    time: 'Afternoon'
+  },
+  {
+    from: 'SLC',
+    to: 'IAH',
+    id: 3336,
+    price: '378.59',
+    duration: '2h 45m',
+    departure: '8:15am',
+    arrival: '11:00am',
+    time: 'Evening'
+  },
+
   {
     from: 'HOB',
     to: 'STL',
