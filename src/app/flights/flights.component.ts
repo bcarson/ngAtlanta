@@ -86,7 +86,7 @@ export class FlightsComponent implements OnInit {
 
   createForm() {
     this.flightsForm = this.fb.group({
-      fromCity: '',
+      fromCity: ['', Validators.required],
       toCity: '',
       time: '',
       city: '',

@@ -4,6 +4,7 @@
 
       <mat-form-field>
         <input type="text" matInput formControlName="fromCity" placeholder="Departure City" [matAutocomplete]="cityFrom">
+        <mat-error class="alert alert-danger" *ngIf="!flightsForm.controls['fromCity'].valid && flightsForm.controls['fromCity'].touched">Please select a departure city.</mat-error>
       </mat-form-field>
       <mat-autocomplete #cityFrom="matAutocomplete">
         <mat-option *ngFor="let airport of filteredAirportsFrom" [value]="airport.name">
@@ -13,6 +14,7 @@
 
       <mat-form-field>
         <input type="text" matInput formControlName="toCity" placeholder="Destination City" [matAutocomplete]="cityTo">
+        <mat-error class="alert alert-danger" *ngIf="!flightsForm.controls['toCity'].valid && flightsForm.controls['toCity'].touched">Please select a destination city.</mat-error>
       </mat-form-field>
       <mat-autocomplete #cityTo="matAutocomplete">
         <mat-option *ngFor="let airport of filteredAirportsTo" [value]="airport.name">

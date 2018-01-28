@@ -3,6 +3,7 @@
 
     <mat-form-field>
       <input type="text" matInput formControlName="pickupCity" placeholder="Pickup City">
+      <mat-error class="alert alert-danger" *ngIf="!carsForm.controls['pickupCity'].valid && carsForm.controls['pickupCity'].touched">Please select a pickup city.</mat-error>
     </mat-form-field>
 
     <div>
