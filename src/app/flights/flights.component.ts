@@ -33,20 +33,14 @@ export class FlightsComponent implements OnInit {
     *   This valueChanges watches the entire form
     */
     this.flightsForm.valueChanges.pipe(debounceTime(300)).subscribe(form => {
-      console.log('Form:', form);
       const fromAirport = this.getAirport(form.fromCity);
       const toAirport = this.getAirport(form.toCity);
       if (fromAirport && toAirport) {
-        console.log('form.fromCity', form.fromCity);
-        console.log('form.toCity', form.toCity);
-        console.log('form.time', form.time);
-        console.log('fromAirport', fromAirport);
         this.flightResults = this.getFlights(
           fromAirport.code,
           toAirport.code,
           form.time
         );
-        console.log('matching flights:', this.flightResults);
       }
     });
 
@@ -73,7 +67,7 @@ export class FlightsComponent implements OnInit {
       );
   }
 
-  getFlights(from, to, time?) {
+  getFlights(from, to, time?): Flight[] {
     if (time !== '') {
       return flights.filter(
         flight =>
