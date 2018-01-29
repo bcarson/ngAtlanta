@@ -28,6 +28,18 @@ export class FlightsComponent implements OnInit {
     this.createForm();
   }
 
+  createForm() {
+    this.flightsForm = this.fb.group({
+      fromCity: ['', Validators.required],
+      toCity: '',
+      time: '',
+      city: '',
+      class: '',
+      flightDeparting: '',
+      flightReturning: ''
+    });
+  }
+
   ngOnInit() {
     /*
     *   This valueChanges watches the entire form
@@ -76,18 +88,6 @@ export class FlightsComponent implements OnInit {
     } else {
       return flights.filter(flight => flight.from === from && flight.to === to);
     }
-  }
-
-  createForm() {
-    this.flightsForm = this.fb.group({
-      fromCity: ['', Validators.required],
-      toCity: '',
-      time: '',
-      city: '',
-      class: '',
-      flightDeparting: '',
-      flightReturning: ''
-    });
   }
 
   /*
